@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import Line from "../components/Line"
 
-const LineContainer = () => {
+const LineContainer = ({number}) => {
 
     const [quote, setQuote] = useState(null)
 
@@ -15,7 +15,7 @@ const LineContainer = () => {
         quote ?
 
         <div>
-            <Line quote={quote} />
+            <Line number={number} quote={quote} />
         </div>
 
         :

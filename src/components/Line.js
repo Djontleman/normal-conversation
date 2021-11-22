@@ -1,8 +1,10 @@
 
-const Line = ({quote}) => {
+const Line = ({number, quote}) => {
 
     return (
-        <p>Person {quote.quote}</p>
+        <div>
+            <p>Person {number}: {quote.quote}</p>
+        </div>
     )
 
 }

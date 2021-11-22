@@ -5,9 +5,9 @@ const App = () => {
   return (
     <div className="App">
       <p>completely normal conversation generator</p>
-      <LineContainer />
-      <LineContainer />
-      <LineContainer />
+      <LineContainer number={1} />
+      <LineContainer number={2} />
+      <LineContainer number={1} />
     </div>
   );
 }
