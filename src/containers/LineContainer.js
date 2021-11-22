@@ -11,6 +11,12 @@ const LineContainer = ({number}) => {
         .then(data => setQuote(data))
     }, [])
 
+    const updateQuote = () => {
+        fetch("https://movie-quote-api.herokuapp.com/v1/quote")
+        .then(response => response.json())
+        .then(data => setQuote(data))
+    }
+
     return (
         quote ?
 
