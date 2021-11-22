@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import Line from "../components/Line"
+import Button from "../components/Button"
 
 const LineContainer = ({number}) => {
 
@@ -20,8 +21,9 @@ const LineContainer = ({number}) => {
     return (
         quote ?
 
-        <div>
+        <div className="line">
             <Line number={number} quote={quote} />
+            <Button onClick={updateQuote} />
         </div>
 
         :

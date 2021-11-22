@@ -6,7 +6,8 @@ body {
   text-align: center;
 }
 
-.btn { 
+.line {
   display: flex;
-  justify-self: center;
+  justify-content: space-between;
+
 }
