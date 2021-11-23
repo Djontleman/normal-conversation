@@ -14,7 +14,7 @@ const LineList = ({ quotes }) => {
     const quoteComponents = quotes
         .map((quote, index) => {
             return (
-                <Line number={numbers[index]} quote={quote} />
+                <Line key={index} number={numbers[index]} quote={quote} />
             )
         })
 
