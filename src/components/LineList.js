@@ -2,6 +2,7 @@ import Line from "../components/Line";
 
 const LineList = ({ quotes }) => {
 
+    const numbers = [1, 2, 1]
     // return (
     //     <>
     //         <Line number={1} quote={quotes[0]} />
@@ -11,9 +12,9 @@ const LineList = ({ quotes }) => {
     // )
 
     const quoteComponents = quotes
-        .map(quote => {
+        .map((quote, index) => {
             return (
-                <Line number={1} quote={quote} />
+                <Line number={numbers[index]} quote={quote} />
             )
         })
 
