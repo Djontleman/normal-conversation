@@ -1,29 +1,35 @@
 import { useState, useEffect } from "react"
-import Line from "../components/Line"
+import LineList from "../components/LineList"
 import Button from "../components/Button"
 
-const LineContainer = ({number}) => {
+const LineContainer = () => {
 
-    const [quote, setQuote] = useState(null)
+    const [quotes, setQuotes] = useState([])
 
-    useEffect(() => {
-        fetch("https://movie-quote-api.herokuapp.com/v1/quote")
-        .then(response => response.json())
-        .then(data => setQuote(data))
-    }, [])
+    const getQuotesData = () => {
+        Promise.all([
+            fetch("https://movie-quote-api.herokuapp.com/v1/quote")
+                .then(response => response.json()),
+            fetch("https://movie-quote-api.herokuapp.com/v1/quote")
+                .then(response => response.json()),
+            fetch("https://movie-quote-api.herokuapp.com/v1/quote")
+                .then(response => response.json())
+        ])
+        .then(data => setQuotes(data))
+    }
+    
+    useEffect(getQuotesData, [])
 
-    const updateQuote = () => {
-        fetch("https://movie-quote-api.herokuapp.com/v1/quote")
-        .then(response => response.json())
-        .then(data => setQuote(data))
+    const updateQuotes = () => {
+        getQuotesData();
     }
 
     return (
-        quote ?
+        quotes ?
 
-        <div className="line">
-            <Line number={number} quote={quote} />
-            <Button onClick={updateQuote} />
+        <div>
+            <LineList quotes={quotes} />
+            <Button onClick={updateQuotes}/>
         </div>
 
         :

@@ -6,7 +6,7 @@ const Button = ({onClick}) => {
     }
 
     return(
-        <button onClick={handleClick}>another line</button>
+        <button onClick={handleClick}>another convo</button>
     )
 } 
 
