@@ -12,14 +12,11 @@ const LineContainer = () => {
         for (let i = 0; i < 3; i++) {
             const fetchResponse = await fetch("https://movie-quote-api.herokuapp.com/v1/quote")
             .then(response => {
-                // quote.push(response.json());
-                // responseJson = response.json()
                 return response.json()
             })
             .then(data => {
                 quote.push(data)
             }) 
-            console.log(quote)
         }
         setQuotes(quote)
     }
@@ -27,11 +24,12 @@ const LineContainer = () => {
     useEffect(getQuotesData, [])
 
     const updateQuotes = () => {
+        setQuotes([]);
         getQuotesData();
     }
 
     return (
-        quotes ?
+        quotes.length >= 3 ?
 
         <div>
             <LineList quotes={quotes} />
