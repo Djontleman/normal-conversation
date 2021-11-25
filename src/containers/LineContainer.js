@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react"
 import LineList from "../components/LineList"
 import Button from "../components/Button"
+import BackMusic from "../components/BackMusic"
 
 const LineContainer = () => {
 
     const [quotes, setQuotes] = useState([])
+    const [isPlaying, setIsPlaying] = useState(true)
     
 
     const getQuotesData = async () => {
@@ -30,6 +32,7 @@ const LineContainer = () => {
         <div>
             <LineList quotes={quotes} />
             <Button onClick={updateQuotes}/>
+            <BackMusic />
         </div>
 
         :
