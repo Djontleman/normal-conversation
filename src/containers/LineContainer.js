@@ -19,7 +19,7 @@ const LineContainer = () => {
         setQuotes(quote)
     }
     
-    useEffect(getQuotesData, [])
+    useEffect(() => getQuotesData(), [])
 
     const updateQuotes = () => {
         setQuotes([]);
