@@ -27,7 +27,7 @@ const LineContainer = () => {
     }
 
     const handleSongStopping = () => {
-        setIsPlaying(false);
+        isPlaying ? setIsPlaying(false) : setIsPlaying(true);
     }
 
     return (
@@ -36,7 +36,7 @@ const LineContainer = () => {
         <div>
             <LineList quotes={quotes} />
             <button onClick={updateQuotes}>another convo</button>
-            <button onClick={handleSongStopping}>make music stahp</button>
+            <button onClick={handleSongStopping}>{isPlaying ? "make music stahp" : "make music go brrr"}</button>
             <BackMusic isPlaying={isPlaying} />
         </div>
 
