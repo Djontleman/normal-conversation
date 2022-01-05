@@ -8,7 +8,6 @@ const LineContainer = () => {
     const [quotes, setQuotes] = useState([])
     const [isPlaying, setIsPlaying] = useState(true)
     
-
     const getQuotesData = async () => {
         let quote = []
         for (let i = 0; i < 3; i++) {
@@ -24,6 +23,11 @@ const LineContainer = () => {
     const updateQuotes = () => {
         setQuotes([]);
         getQuotesData();
+        setIsPlaying(true);
+    }
+
+    const handleSongStopping = () => {
+        setIsPlaying(false);
     }
 
     return (
@@ -31,8 +35,9 @@ const LineContainer = () => {
 
         <div>
             <LineList quotes={quotes} />
-            <Button onClick={updateQuotes}/>
-            <BackMusic />
+            <button onClick={updateQuotes}>another convo</button>
+            <button onClick={handleSongStopping}>make music stahp</button>
+            <BackMusic isPlaying={isPlaying} />
         </div>
 
         :
