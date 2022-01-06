@@ -5,8 +5,9 @@ import BackMusic from "../components/BackMusic"
 
 const LineContainer = () => {
 
+    const [confirm, setConfirm] = useState(false)
     const [quotes, setQuotes] = useState([])
-    const [isPlaying, setIsPlaying] = useState(true)
+    const [isPlaying, setIsPlaying] = useState(false)
     
     const getQuotesData = async () => {
         let quote = []
@@ -18,7 +19,12 @@ const LineContainer = () => {
         setQuotes(quote)
     }
     
-    useEffect(() => getQuotesData(), [])
+    // useEffect(() => getQuotesData(), [])
+
+    const handleConfirm = () => {
+        setConfirm(true);
+        updateQuotes();
+    }
 
     const updateQuotes = () => {
         setQuotes([]);
@@ -31,18 +37,31 @@ const LineContainer = () => {
     }
 
     return (
-        quotes.length >= 3 ?
+        <>
+            {!confirm ?
+                <>
+                    <button onClick={handleConfirm}>gimme a convo</button>
+                </>
 
-        <div>
-            <LineList quotes={quotes} />
-            <button onClick={updateQuotes}>another convo</button>
-            <button onClick={handleSongStopping}>{isPlaying ? "make music stahp" : "make music go brrr"}</button>
-            <BackMusic isPlaying={isPlaying} />
-        </div>
+                :
 
-        :
+                <>
+                    {quotes.length >= 3 ?
 
-        <p>loading conversation...</p>
+                        <div>
+                            <LineList quotes={quotes} />
+                            <button onClick={updateQuotes}>another convo</button>
+                            <button onClick={handleSongStopping}>{isPlaying ? "make music stahp" : "make music go brrr"}</button>
+                            <BackMusic isPlaying={isPlaying} />
+                        </div>
+
+                        :
+
+                        <p>loading conversation...</p>
+                    }
+                </>
+            }
+        </>
     )
 }
 
