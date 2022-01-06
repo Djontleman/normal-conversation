@@ -3,7 +3,7 @@ const Line = ({number, quote}) => {
 
     return (
         <div>
-            <p>Person {number}: {quote}</p>
+            <p>Person {number}: {quote.quote}</p>
         </div>
     )
 

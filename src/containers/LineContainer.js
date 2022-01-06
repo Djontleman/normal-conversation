@@ -10,12 +10,18 @@ const LineContainer = () => {
     const [quotes, setQuotes] = useState([])
     const [isPlaying, setIsPlaying] = useState(false)
     
-    const getQuotesData = async () => {
-        let quote = []
+    const getQuotesData = () => {
+        let quoteList = []
         for (let i = 0; i < 3; i++) {
-            quote.push(random())
+            let quote = random();
+            const [j, interQuote, movie] = quote.split('"');
+            quote = {
+                quote: interQuote,
+                movie: movie.slice(1)
+            }
+            quoteList.push(quote);
         }
-        setQuotes(quote)
+        setQuotes(quoteList)
     }
 
     const handleConfirm = () => {
