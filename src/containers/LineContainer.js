@@ -14,6 +14,7 @@ const LineContainer = () => {
         let quoteList = []
         for (let i = 0; i < 3; i++) {
             let quote = random();
+            // eslint-disable-next-line
             const [j, interQuote, movie] = quote.split('"');
             quote = {
                 quote: interQuote,
