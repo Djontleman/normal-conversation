@@ -1,4 +1,6 @@
 import { useState } from "react"
+import { random } from 'movie-quotes'
+
 import LineList from "../components/LineList"
 import BackMusic from "../components/BackMusic"
 
@@ -11,9 +13,7 @@ const LineContainer = () => {
     const getQuotesData = async () => {
         let quote = []
         for (let i = 0; i < 3; i++) {
-            await fetch("https://movie-quote-api.herokuapp.com/v1/quote")
-            .then(response => response.json())
-            .then(data => quote.push(data)) 
+            quote.push(random())
         }
         setQuotes(quote)
     }
